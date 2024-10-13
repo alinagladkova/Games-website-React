@@ -1,28 +1,32 @@
 .game-card {
-  // flex-basis: 25%;
-  margin: 5px;
-  background-color: rgb(39, 34, 61);
+  margin: 10px 5px;
+  background-color: rgb(3, 3, 3);
 
   &__img {
     padding: 3px;
     width: 100%;
   }
-
-  &__info {
-    padding: 5px;
-    color: #d7c4df;
-    font-size: 16px;
-  }
   &__title {
     font-size: 22px;
     font-weight: 700;
-    color: rgb(139, 196, 243);
-    margin-bottom: 5px;
+    color: rgb(255, 255, 255);
+    margin: 10px;
+  }
+  &__info {
+    margin: 10px;
+    color: #96839e;
+    font-size: 16px;
   }
   &__release-date {
+    span {
+      color: aliceblue;
+    }
+    margin-bottom: 5px;
   }
   &__publisher {
+    margin-bottom: 5px;
   }
   &__genre {
+    margin-bottom: 5px;
   }
 }

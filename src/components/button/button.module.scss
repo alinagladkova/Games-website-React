@@ -1,1 +1,11 @@
+.btn {
+  color: aliceblue;
+  margin-left: 10px;
+  svg {
+    width: 20px;
+  }
+}
 
+.btn:hover {
+  color: aqua;
+}

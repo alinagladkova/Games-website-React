@@ -1,0 +1,22 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  border-bottom: 1px solid gray;
+  &__logo {
+    display: inline-block;
+    margin: 20px 0;
+  }
+  &__search {
+    // display: flex;
+    min-width: 300px;
+    height: 40px;
+    border: 1px solid aquamarine;
+    border-radius: 10px;
+    margin-right: 10px;
+  }
+  &__control {
+    display: flex;
+  }
+}
