@@ -31,8 +31,8 @@ export default function Header() {
           <Search inputHandler={inputHandler}></Search>
         </div>
         <Button use="search" icon={<RiSearchLine />} handler={setStateActive}></Button>
-        <Button use="filter" icon={<LuFilter />}></Button>
         <Button use="sort" icon={<MdOutlineSort />}></Button>
+        <Button use="filter" icon={<LuFilter />}></Button>
       </div>
     </header>
   );

@@ -1,11 +1,14 @@
-import GamesList from "../gameList/GamesList";
 import Header from "../header/Header";
+import Main from "../main/Main";
 
 export default function App() {
   return (
     <>
       <Header></Header>
-      <GamesList></GamesList>;
+      <Main></Main>
     </>
   );
 }
+
+//css кнопки
+//css sidebar

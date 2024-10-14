@@ -1,11 +1,27 @@
 .btn {
+  position: relative;
+  cursor: pointer;
   color: aliceblue;
   margin-left: 10px;
+  z-index: 3;
+
   svg {
     width: 20px;
+  }
+  &:before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0%;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: rgba(41, 85, 85, 0.6);
+    z-index: 1;
   }
 }
 
 .btn:hover {
-  color: aqua;
+  color: #ff8c00;
 }

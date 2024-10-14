@@ -1,25 +1,29 @@
 .game-card {
-  margin: 10px 5px;
-  background-color: rgb(3, 3, 3);
-
+  flex-basis: 30%;
+  margin: 0 5px 10px 5px;
+  background-color: rgba(41, 85, 85, 0.6);
+  border-radius: 10px;
+  padding: 5px;
   &__img {
-    padding: 3px;
+    padding: 5px;
     width: 100%;
+    img {
+      border-radius: 10px;
+    }
   }
   &__title {
-    font-size: 22px;
-    font-weight: 700;
+    font-size: 18px;
     color: rgb(255, 255, 255);
     margin: 10px;
   }
   &__info {
     margin: 10px;
-    color: #96839e;
+    color: #008b8b;
     font-size: 16px;
   }
   &__release-date {
     span {
-      color: aliceblue;
+      color: rgb(165, 159, 159);
     }
     margin-bottom: 5px;
   }
@@ -28,5 +32,8 @@
   }
   &__genre {
     margin-bottom: 5px;
+  }
+  &:hover {
+    border: 1px solid orangered;
   }
 }
