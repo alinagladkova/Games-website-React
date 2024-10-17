@@ -14,7 +14,7 @@ export default function GameCard({ data }) {
       <h4 className={cn(styles["game-card__title"])}>{title}</h4>
       <div className={cn(styles["game-card__info"])}>
         <p className={cn(styles["game-card__release-date"])}>
-          Дата релиза:<span> {release_date}</span>
+          Release date:<span> {release_date}</span>
         </p>
         <p className={cn(styles["game-card__publisher"])}>{publisher}</p>
         <p className={cn(styles["game-card__genre"])}>{genre}</p>

@@ -11,9 +11,16 @@ import Search from "../search/Search";
 export default function Header() {
   const [active, setActive] = useState(false);
   const [input, setInput] = useState("");
+  // const [key, setKey] = useState("");
 
   const setStateActive = () => {
     setActive((active) => !active);
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Escape") {
+      setStateActive();
+    }
   };
 
   const inputHandler = (inputValue) => {
@@ -27,7 +34,7 @@ export default function Header() {
         <img src="freetogame-logo.png" alt="icon" />
       </a>
       <div className={cn(styles["header__control"])}>
-        <div className={cn(styles["header__search"])} style={active ? { display: ["inline-block"] } : { display: "none" }}>
+        <div className={cn(styles["header__search"])} style={active ? { display: ["inline-block"] } : { display: "none" }} onKeyDown={handleKeyDown}>
           <Search inputHandler={inputHandler}></Search>
         </div>
         <Button use="search" icon={<RiSearchLine />} handler={setStateActive}></Button>

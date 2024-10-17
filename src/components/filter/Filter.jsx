@@ -2,13 +2,31 @@ import Select from "../select/Select";
 import styles from "./filter.module.scss";
 import cn from "classnames";
 
-export default function Filter() {
+export default function Filter({ data }) {
+  // console.log(data.map((game) => game.genre));
+
   return (
     <form className={cn(styles.filter)} action="#" method="post">
-      <div className={cn(styles["filter__wrapper"])}>
-        <h4 className={cn(styles["filter__title"])}>bhjbjnkj</h4>
+      <div className={cn(styles["filter__inner"])}>
+        <h4 className={cn(styles["filter__title"])}>platform</h4>
         <div className={cn(styles["filter__holder"])}>
-          <Select></Select>
+          <Select
+            name="platform"
+            optionArr={data.map((game) => {
+              return { id: game.id, genre: game.platform };
+            })}
+          ></Select>
+        </div>
+      </div>
+      <div className={cn(styles["filter__inner"])}>
+        <h4 className={cn(styles["filter__title"])}>genre</h4>
+        <div className={cn(styles["filter__holder"])}>
+          <Select
+            name="genre"
+            optionArr={data.map((game) => {
+              return { id: game.id, genre: game.genre };
+            })}
+          ></Select>
         </div>
       </div>
     </form>
