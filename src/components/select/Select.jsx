@@ -3,22 +3,14 @@ import styles from "./select.module.scss";
 import cn from "classnames";
 
 export default function Select({ name, optionArr }) {
-  const getgenreArray = () => {
-    console.log(optionArr);
-    return optionArr.map((game) => {
-      let genreArr = [];
-      genreArr.push(game[name]);
-      return genreArr;
-    });
-
-    // optionArr;
-  };
-
   return (
     <select className={cn(styles.select)} name={name}>
-      {optionArr.map((filterOption) => (
-        <Option view={console.log(getgenreArray())} key={filterOption.id} text={filterOption[name]}></Option>
-      ))}
+      {optionArr
+        .map((game) => game[name])
+        .filter((game, i, arr) => arr.indexOf(game) === i)
+        .map((option) => (
+          <Option key={option} text={option}></Option>
+        ))}
     </select>
   );
 }

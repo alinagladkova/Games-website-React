@@ -3,7 +3,7 @@ import styles from "./filter.module.scss";
 import cn from "classnames";
 
 export default function Filter({ data }) {
-  // console.log(data.map((game) => game.genre));
+  console.log(data);
 
   return (
     <form className={cn(styles.filter)} action="#" method="post">
@@ -13,7 +13,7 @@ export default function Filter({ data }) {
           <Select
             name="platform"
             optionArr={data.map((game) => {
-              return { id: game.id, genre: game.platform };
+              return { id: game.id, platform: game.platform };
             })}
           ></Select>
         </div>
