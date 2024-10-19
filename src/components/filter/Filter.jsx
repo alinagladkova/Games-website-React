@@ -3,8 +3,6 @@ import styles from "./filter.module.scss";
 import cn from "classnames";
 
 export default function Filter({ data }) {
-  console.log(data);
-
   return (
     <form className={cn(styles.filter)} action="#" method="post">
       <div className={cn(styles["filter__inner"])}>
@@ -32,5 +30,3 @@ export default function Filter({ data }) {
     </form>
   );
 }
-// Игры можно отфильтровать по платформе и жанру (например, шутер)
-// Игры можно отсортировать по дате релиза, популярности и тд

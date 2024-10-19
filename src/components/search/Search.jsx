@@ -1,7 +1,7 @@
 import styles from "./search.module.scss";
 import cn from "classnames";
 
-export default function Search({ inputHandler, onKeyDown }) {
+export default function Search({ inputHandler }) {
   return (
     <input
       className={cn(styles.search)}
