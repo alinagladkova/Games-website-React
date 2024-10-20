@@ -1,4 +1,4 @@
-import Button from "../button/Button";
+import Button from "../../../ui/button/Button";
 import styles from "./header.module.scss";
 import cn from "classnames";
 import { useState } from "react";
@@ -6,8 +6,10 @@ import { useState } from "react";
 import { LuFilter } from "react-icons/lu";
 import { MdOutlineSort } from "react-icons/md";
 import { RiSearchLine } from "react-icons/ri";
-import Search from "../search/Search";
-import Sort from "../sort/Sort";
+
+import Input from "../../../ui/input/Input";
+import Select from "../../../ui/select/Select.jsx";
+import Logo from "../logo/Logo.jsx";
 
 export default function Header({ data }) {
   const [activeSearch, setActiveSearch] = useState(false);
@@ -38,15 +40,19 @@ export default function Header({ data }) {
 
   return (
     <header className={cn(styles.header)}>
-      <a className={cn(styles["header__logo"])} href="#">
-        <img src="freetogame-logo.png" alt="icon" />
-      </a>
+      <div className={cn(styles["header__logo"])}>
+        <Logo></Logo>
+      </div>
       <div className={cn(styles["header__control"])}>
-        <div className={cn(styles["header__search"])} style={activeSearch ? { display: ["inline-block"] } : { display: "none" }} onKeyDown={handleKeyDown}>
-          <Search inputHandler={inputHandler}></Search>
-        </div>
+        <search className={cn(styles["header__search"])} style={activeSearch ? { display: ["inline-block"] } : { display: "none" }} onKeyDown={handleKeyDown}>
+          <form>
+            <div className={cn(styles["header__input"])}>
+              <Input type="text" placeholder="Search" inputHandler={inputHandler}></Input>
+            </div>
+          </form>
+        </search>
         <div className={cn(styles["header__sort"])} style={activeSort ? { display: ["inline-block"] } : { display: "none" }} onKeyDown={handleKeyDown}>
-          <Sort data={data}></Sort>
+          {/* <Select name="sort" optionArr={["Release date", "Popularity", "From A to Z", "From Z to A"]}></Select> */}
         </div>
         <Button use="search" icon={<RiSearchLine />} handler={setStateActiveSearch}></Button>
         <Button use="sort" icon={<MdOutlineSort />} handler={setStateActiveSort}></Button>

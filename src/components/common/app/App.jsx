@@ -1,6 +1,11 @@
-import Header from "../header/Header";
-import Main from "../main/Main";
 import { useEffect, useState } from "react";
+import { Routes, Route } from "react-router-dom";
+import CatalogPage from "../../../pages/catalogPage/CatalogPage";
+import GameProfilePage from "../../../pages/gameProfilePage/GameProfilePage";
+import NotFoundPage from "../../../pages/notFoundPage/NotFoundPage";
+import Layout from "../layout/Layout";
+
+// import Main from "../../main/Main";
 
 export default function App() {
   const [gameCards, setgameCards] = useState([]);
@@ -25,8 +30,15 @@ export default function App() {
 
   return (
     <>
-      <Header data={gameCards}></Header>
-      <Main data={gameCards}></Main>
+      {/* <Header data={gameCards}></Header>
+      <Main data={gameCards}></Main> */}
+      <Routes>
+        <Route path="/" element={<Layout data={gameCards} />}>
+          <Route path="catalogPage" element={<CatalogPage data={gameCards} />}></Route>
+          <Route path="gameProfilePage" element={<GameProfilePage />}></Route>
+          <Route path="*" element={<NotFoundPage />}></Route>
+        </Route>
+      </Routes>
     </>
   );
 }
