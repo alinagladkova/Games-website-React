@@ -1,17 +1,22 @@
 import { useState } from "react";
-import Input from "../../ui/input/Input.jsx";
-
-// import Select from "../../ui/select/Select.jsx";
-
 import styles from "./filter.module.scss";
 import cn from "classnames";
+import Checkbox from "../../ui/checkbox/Checkbox.jsx";
 
 export default function Filter({ data }) {
-  const [checked, setChecked] = useState(false);
+  const [checkedPlatform, setCheckedPlatform] = useState(new Array(2).fill(false));
+  const [checkedGenre, setCheckedGenre] = useState(new Array(4).fill(false));
 
-  const setStateChecked = () => {
-    setChecked((checked) => !checked);
+  const handlerSetStateCheckedPlatform = (position) => {
+    const updatedCheckPlatform = checkedPlatform.map((el, i) => (i === position ? !el : el));
+    setCheckedPlatform(updatedCheckPlatform);
   };
+
+  const handlerSetStateCheckedGenre = (position) => {
+    const updatedCheckGenre = checkedGenre.map((el, i) => (i === position ? !el : el));
+    setCheckedGenre(updatedCheckGenre);
+  };
+
   return (
     <form className={cn(styles.filter)}>
       <legend className={cn(styles["filter__title"])}>platform</legend>
@@ -19,13 +24,10 @@ export default function Filter({ data }) {
         {data
           .map((game) => game.platform)
           .filter((game, i, arr) => arr.indexOf(game) === i)
-          .map((option) => {
+          .map((platform, i) => {
             return (
-              <div className={cn(styles[`filter__inner`], styles[`${checked ? "--checked" : ""}`])} key={option} onClick={setStateChecked}>
-                <div className={cn(styles["filter__input"])}>
-                  <Input type="checkbox" id={option} name={option}></Input>
-                </div>
-                <label className={cn(styles["filter__label"])}>{option}</label>
+              <div className={cn(styles[`filter__inner`])} key={i}>
+                <Checkbox id={i} label={platform} stateChecked={checkedPlatform[i]} checkboxHandler={() => handlerSetStateCheckedPlatform(i)} />
               </div>
             );
           })}
@@ -35,13 +37,10 @@ export default function Filter({ data }) {
         {data
           .map((game) => game.genre)
           .filter((game, i, arr) => arr.indexOf(game) === i)
-          .map((option) => {
+          .map((genre, i) => {
             return (
-              <div className={cn(styles["filter__inner"])} key={option}>
-                <div className={cn(styles["filter__input"])}>
-                  <Input type="checkbox" id={option} name={option}></Input>
-                </div>
-                <label className={cn(styles["filter__label"])}>{option}</label>
+              <div className={cn(styles[`filter__inner`])} key={i}>
+                <Checkbox id={i} label={genre} stateChecked={checkedGenre[i]} checkboxHandler={() => handlerSetStateCheckedGenre(i)} />
               </div>
             );
           })}
@@ -50,3 +49,4 @@ export default function Filter({ data }) {
   );
 }
 //checked
+//разобраться почему не отмечает checked
