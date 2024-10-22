@@ -30,8 +30,6 @@ export default function App() {
 
   return (
     <>
-      {/* <Header data={gameCards}></Header>
-      <Main data={gameCards}></Main> */}
       <Routes>
         <Route path="/" element={<Layout data={gameCards} />}>
           <Route path="catalogPage" element={<CatalogPage data={gameCards} />}></Route>

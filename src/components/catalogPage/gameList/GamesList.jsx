@@ -1,6 +1,6 @@
 import cn from "classnames";
 import styles from "./gamesList.module.scss";
-import GameCard from "../../gameProfilePage/gameCard/GameCard";
+import GameCard from "../gameCard/GameCard";
 
 export default function GamesList({ data }) {
   return (

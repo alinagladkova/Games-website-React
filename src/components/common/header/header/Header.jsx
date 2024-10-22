@@ -52,7 +52,7 @@ export default function Header({ data }) {
           </form>
         </search>
         <div className={cn(styles["header__sort"])} style={activeSort ? { display: ["inline-block"] } : { display: "none" }} onKeyDown={handleKeyDown}>
-          {/* <Select name="sort" optionArr={["Release date", "Popularity", "From A to Z", "From Z to A"]}></Select> */}
+          <Select name="sort" optionArr={["Release date", "Popularity", "From A to Z", "From Z to A"]}></Select>
         </div>
         <Button use="search" icon={<RiSearchLine />} handler={setStateActiveSearch}></Button>
         <Button use="sort" icon={<MdOutlineSort />} handler={setStateActiveSort}></Button>
