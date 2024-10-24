@@ -32,8 +32,8 @@ export default function App() {
     <>
       <Routes>
         <Route path="/" element={<Layout data={gameCards} />}>
-          <Route path="catalogPage" element={<CatalogPage data={gameCards} />}></Route>
-          <Route path="gameProfilePage" element={<GameProfilePage />}></Route>
+          <Route index element={<CatalogPage data={gameCards} />}></Route>
+          <Route path="gameProfilePage" element={<GameProfilePage data={gameCards} />}></Route>
           <Route path="*" element={<NotFoundPage />}></Route>
         </Route>
       </Routes>

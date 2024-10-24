@@ -17,7 +17,9 @@
     margin-right: 10px;
   }
   &__control {
+    min-width: 115px;
     display: flex;
+    justify-content: space-between;
     align-items: center;
     margin-right: 10px;
   }

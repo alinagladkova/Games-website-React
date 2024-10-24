@@ -1,5 +1,6 @@
 import styles from "./gameCard.module.scss";
 import cn from "classnames";
+import { Link } from "react-router-dom";
 
 export default function GameCard({ data }) {
   const { title, thumbnail, short_description, release_date, publisher, platform, id, genre, game_url, freetogame_profile_url, developer } = data;
@@ -9,7 +10,9 @@ export default function GameCard({ data }) {
   return (
     <div className={cn(styles["game-card"])}>
       <div className={cn(styles["game-card__img"])}>
-        <img src={thumbnail} alt="picture" />
+        <Link to="/gameProfilePage">
+          <img src={thumbnail} alt="picture" />
+        </Link>
       </div>
       <h4 className={cn(styles["game-card__title"])}>{title}</h4>
       <div className={cn(styles["game-card__info"])}>
