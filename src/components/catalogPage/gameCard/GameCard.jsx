@@ -3,14 +3,12 @@ import cn from "classnames";
 import { Link } from "react-router-dom";
 
 export default function GameCard({ data }) {
-  const { title, thumbnail, short_description, release_date, publisher, platform, id, genre, game_url, freetogame_profile_url, developer } = data;
-
-  //при клике совершается переход на страничку игры
+  const { title, thumbnail, release_date, publisher, id, genre } = data;
 
   return (
     <div className={cn(styles["game-card"])}>
       <div className={cn(styles["game-card__img"])}>
-        <Link to="/gameProfilePage">
+        <Link to={`/gameProfilePage/${id}`}>
           <img src={thumbnail} alt="picture" />
         </Link>
       </div>

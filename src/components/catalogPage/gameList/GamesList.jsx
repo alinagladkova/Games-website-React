@@ -1,7 +1,6 @@
 import cn from "classnames";
 import styles from "./gamesList.module.scss";
 import GameCard from "../gameCard/GameCard";
-// import { Link } from "react-router-dom";
 
 export default function GamesList({ data }) {
   return (
