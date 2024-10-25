@@ -22,3 +22,19 @@
 .btn:hover {
   color: #0bc2e2;
 }
+
+.btn--download {
+  width: 100%;
+  padding: 10px 30px;
+  border-radius: 30px;
+  background-color: #2da7ac;
+
+  &:before {
+    content: none;
+  }
+}
+
+.btn--download:hover {
+  background-color: aliceblue;
+  color: #0bc2e2;
+}

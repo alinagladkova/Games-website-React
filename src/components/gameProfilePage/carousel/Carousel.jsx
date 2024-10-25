@@ -6,7 +6,20 @@ import "slick-carousel/slick/slick-theme.scss";
 import { NextArrow, PrevArrow } from "../sliderComponents/SliderComponents.jsx";
 
 export default function Carousel({ data }) {
+  console.log(data);
+
   const settings = {
+    // customPaging: function (i) {
+    //   {
+    //     return data.screenshots.map((screenshot) => {
+    //       return (
+    //         <div className={cn(styles["slide-container"])} key={screenshot.id + 1}>
+    //           <img className={cn(styles["centered-image"])} src={screenshot.image} alt="img" />
+    //         </div>
+    //       );
+    //     });
+    //   }
+    // },
     dots: true,
     fade: true,
     infinite: true,
@@ -16,32 +29,21 @@ export default function Carousel({ data }) {
     lazyLoad: true,
     waitForAnimate: false,
     centerMode: true,
-    // initialSlide: 0,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
   };
 
   return (
-    <div style={{ width: "100%" }}>
-      {/* <Slider {...settings}>
-        {data.map((game, i) => {
-          if (i < 7) {
-            return (
-              <div className={cn(styles["slide-container"])} key={game.id}>
-                <img className={cn(styles["centered-image"])} src={game.thumbnail} alt={`Slide ${i + 1}`} />
-              </div>
-            );
-          }
+    <div>
+      <Slider {...settings}>
+        {data.screenshots.map((screenshot) => {
+          return (
+            <div className={cn(styles["slide-container"])} key={screenshot.id}>
+              <img className={cn(styles["centered-image"])} src={screenshot.image} alt="img" />
+            </div>
+          );
         })}
-      </Slider> */}
+      </Slider>
     </div>
   );
 }
-
-// customPaging: function (i) {
-//   return (
-//     <a className={cn(styles["slide-container"])}>
-//       <img className={cn(styles["centered-image"])} src={"https://www.freetogame.com/g/6/thumbnail.jpg"} />
-//     </a>
-//   );
-// },

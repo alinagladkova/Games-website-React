@@ -1,3 +1,4 @@
+import { useSearchParams } from "react-router-dom";
 import { useState } from "react";
 import styles from "./filter.module.scss";
 import cn from "classnames";
@@ -6,6 +7,9 @@ import Checkbox from "../../ui/checkbox/Checkbox.jsx";
 export default function Filter({ data }) {
   const [checkedPlatform, setCheckedPlatform] = useState(new Array(2).fill(false));
   const [checkedGenre, setCheckedGenre] = useState(new Array(4).fill(false));
+  const [searchParams, setsearchParams] = useSearchParams();
+
+  const postQuery = searchParams.get("post") || "";
 
   const handlerSetStateCheckedPlatform = (position) => {
     const updatedCheckPlatform = checkedPlatform.map((el, i) => (i === position ? !el : el));
@@ -49,4 +53,3 @@ export default function Filter({ data }) {
   );
 }
 //checked
-//разобраться почему не отмечает checked

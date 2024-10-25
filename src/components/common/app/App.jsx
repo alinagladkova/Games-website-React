@@ -1,40 +1,23 @@
-import { useEffect, useState } from "react";
-import { Routes, Route } from "react-router-dom";
-import CatalogPage from "../../../pages/catalogPage/CatalogPage";
-import GameProfilePage from "../../../pages/gameProfilePage/GameProfilePage";
+import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from "react-router-dom";
+import { CatalogPage, gamesCatalogLoader } from "../../../pages/catalogPage/CatalogPage";
+import { GameProfilePage, gamesProfileLoader } from "../../../pages/gameProfilePage/GameProfilePage";
 import NotFoundPage from "../../../pages/notFoundPage/NotFoundPage";
 import Layout from "../layout/Layout";
 
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<Layout />}>
+      <Route index element={<CatalogPage />} loader={gamesCatalogLoader}></Route>
+      <Route path="gameProfilePage/:id" element={<GameProfilePage />} loader={gamesProfileLoader}></Route>
+      <Route path="*" element={<NotFoundPage />}></Route>
+    </Route>
+  )
+);
+
 export default function App() {
-  const [gameCards, setgameCards] = useState([]);
-
-  useEffect(() => {
-    const url = "https://free-to-play-games-database.p.rapidapi.com/api/filter?tag=3d.mmorpg.fantasy.pvp&platform=pc";
-    const options = {
-      method: "GET",
-      headers: {
-        "x-rapidapi-key": "dd054139admsh0ba150c40ea21dfp1f0668jsnd6c925a75ebc",
-        "x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
-      },
-    };
-    fetch(url, options)
-      .then((response) => response.json())
-      .then((data) => setgameCards(data))
-
-      .catch((err) => console.log(err));
-
-    return () => {};
-  }, []);
-
   return (
     <>
-      <Routes>
-        <Route path="/" element={<Layout data={gameCards} />}>
-          <Route index element={<CatalogPage data={gameCards} />}></Route>
-          <Route path="gameProfilePage/:id" element={<GameProfilePage />}></Route>
-          <Route path="*" element={<NotFoundPage />}></Route>
-        </Route>
-      </Routes>
+      <RouterProvider router={router} />
     </>
   );
 }
@@ -60,3 +43,21 @@ export default function App() {
 // При переходе со страницы на страницу запросы, относящиеся к старой странице, должны прерываться (отменяться/прекращаться)
 // Бэкенд для хостинга статики и API для инкапсуляции внешних запросов на Node.JS
 // Покрытие кода юнит-тестами
+
+// useEffect(() => {
+//   const url = "https://free-to-play-games-database.p.rapidapi.com/api/filter?tag=3d.mmorpg.fantasy.pvp&platform=pc";
+//   const options = {
+//     method: "GET",
+//     headers: {
+//       "x-rapidapi-key": "dd054139admsh0ba150c40ea21dfp1f0668jsnd6c925a75ebc",
+//       "x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
+//     },
+//   };
+//   fetch(url, options)
+//     .then((response) => response.json())
+//     .then((data) => setgameCards(data))
+
+//     .catch((err) => console.log(err));
+
+//   return () => {};
+// }, []);

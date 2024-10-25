@@ -4,7 +4,7 @@ import cn from "classnames";
 export default function Input({ type, placeholder, inputHandler }) {
   const inputAction = (e) => {
     if (type === "text") {
-      return inputHandler(e.target.value.trim());
+      return inputHandler(e, e.target.value.trim());
     }
   };
 

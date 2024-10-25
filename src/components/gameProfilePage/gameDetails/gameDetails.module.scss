@@ -1,18 +1,33 @@
 .game-details {
-  // flex-basis: 30%;
+  flex-basis: 30%;
   color: aliceblue;
-
+  margin-bottom: 10px;
   span {
     color: grey;
     margin-right: 10px;
   }
-  &__info {
-  }
-  &__thumbnail {
-    margin: 5px auto;
-  }
 
   &__short-description {
     margin: 10px auto;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #0bc2e2;
+  }
+  &__info {
+    margin-bottom: 20px;
+  }
+  &__genre {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #0bc2e2;
+  }
+  &__minimum-system-requirements {
+    margin: 10px auto;
+  }
+}
+
+.minimum-system-requirements {
+  &__title {
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: rgb(54, 160, 160);
   }
 }

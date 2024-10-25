@@ -5,13 +5,14 @@ import styles from "./layout.module.scss";
 import cn from "classnames";
 import Downloader from "../downloader/Downloader";
 
-export default function Layout({ data }) {
+export default function Layout() {
+  //получить сюда то, что мы вбиваем в поисковик и отправить дальше
   return (
     <>
-      <Header data={data}></Header>
-      <Downloader data={data}></Downloader>
+      <Header></Header>
+      <Downloader></Downloader>
       <main className={cn(styles.container)}>
-        <Outlet data={data} />
+        <Outlet />
       </main>
     </>
   );

@@ -1,16 +1,17 @@
 import cn from "classnames";
 import styles from "./gameDetails.module.scss";
+import Button from "../../ui/button/Button";
 
 export default function GameDetails({ data }) {
   const { thumbnail, release_date, developer, genre, publisher, minimum_system_requirements, short_description } = data;
-  //кнопка загрузить https://www.freetogame.com/mu-legend freetogame_profile_url
+  //через кнопку открывать плашку download
   return (
     <div className={cn(styles["game-details"])}>
+      <div className={cn(styles["game-details__thumbnail"])}>
+        <img src={thumbnail} alt="img" />
+      </div>
+      <p className={cn(styles["game-details__short-description"])}>{short_description}</p>
       <div className={cn(styles["game-details__info"])}>
-        <div className={cn(styles["game-details__thumbnail"])}>
-          <img src={thumbnail} alt="img" />
-        </div>
-        <p className={cn(styles["game-details__short-description"])}>{short_description}</p>
         <p className={cn(styles["game-details__release-date"])}>
           <span>Release date:</span> {release_date}
         </p>
@@ -24,24 +25,18 @@ export default function GameDetails({ data }) {
           <span>Genre:</span> {genre}
         </p>
         <div className={cn(styles["game-details__minimum-system-requirements"])}>
-          <p>
-            <span>{console.log(Object.keys(minimum_system_requirements))}</span>
-            {Object.values(minimum_system_requirements)}
-          </p>
-          ;{/* {console.log(Object.entries(minimum_system_requirements))} */}
-          {/* {minimum_system_requirements.map((game) => {
-
-            // return Object.entries(game);
-            // <p>
-            //   <span>{game.key}</span>
-            //   {game.value}
-            // </p>;
-          })} */}
+          <h6 className={cn(styles["minimum-system-requirements__title"])}>Minimum system requirements</h6>
+          <ul className={cn(styles["minimum-system-requirements__list"])}>
+            {Object.entries(minimum_system_requirements).map(([key, value]) => (
+              <li className={cn(styles["inimum-system-requirements__item"])} key={key}>
+                <span>{`${key.slice(0, 1).toUpperCase()}${key.slice(1)}:`}</span>
+                {value}
+              </li>
+            ))}
+          </ul>
         </div>
-        {/* <p className={cn(styles["game-details__minimum-system-requirements"])}>
-          <span>Minimum system requirements:</span> {minimum_system_requirements}
-        </p> */}
       </div>
+      <Button use="download" text="Download" />
     </div>
   );
 }

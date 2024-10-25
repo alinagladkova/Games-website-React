@@ -1,22 +1,21 @@
-import Button from "../../../ui/button/Button";
+import { useSearchParams } from "react-router-dom";
+import { useState } from "react";
 import styles from "./header.module.scss";
 import cn from "classnames";
-import { useState } from "react";
+
+import Button from "../../../ui/button/Button";
+import Input from "../../../ui/input/Input";
+import Select from "../../../ui/select/Select.jsx";
+import Logo from "../logo/Logo.jsx";
 
 import { LuFilter } from "react-icons/lu";
 import { MdOutlineSort } from "react-icons/md";
 import { RiSearchLine } from "react-icons/ri";
 
-import Input from "../../../ui/input/Input";
-import Select from "../../../ui/select/Select.jsx";
-import Logo from "../logo/Logo.jsx";
-
-export default function Header({ data }) {
+export default function Header() {
   const [activeSearch, setActiveSearch] = useState(false);
   const [activeSort, setActiveSort] = useState(false);
-
-  const [input, setInput] = useState("");
-  // const [key, setKey] = useState("");
+  // const [searchParams, setsearchParams] = useSearchParams();
 
   const setStateActiveSearch = () => {
     setActiveSearch((active) => !active);
@@ -33,8 +32,9 @@ export default function Header({ data }) {
     }
   };
 
-  const inputHandler = (inputValue) => {
-    console.log(inputValue);
+  const inputHandler = (e, inputValue) => {
+    // e.preventDefault();
+    // setsearchParams({ game: inputValue });
     //обеспечить всплытие до GameList, передать туда
   };
 
