@@ -1,6 +1,6 @@
 .game-details {
   flex-basis: 30%;
-  color: aliceblue;
+  color: #fcfcfc;
   margin-bottom: 10px;
   span {
     color: grey;
@@ -10,14 +10,14 @@
   &__short-description {
     margin: 10px auto;
     padding-bottom: 10px;
-    border-bottom: 1px solid #0bc2e2;
+    border-bottom: 1px solid #285f77;
   }
   &__info {
     margin-bottom: 20px;
   }
   &__genre {
     padding-bottom: 10px;
-    border-bottom: 1px solid #0bc2e2;
+    border-bottom: 1px solid #285f77;
   }
   &__minimum-system-requirements {
     margin: 10px auto;
@@ -28,6 +28,6 @@
   &__title {
     font-weight: 500;
     margin-bottom: 5px;
-    color: rgb(54, 160, 160);
+    color: #a4416d;
   }
 }

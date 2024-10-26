@@ -1,18 +1,23 @@
-import { Link, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import Header from "../header/header/Header";
 
 import styles from "./layout.module.scss";
 import cn from "classnames";
 import Downloader from "../downloader/Downloader";
+import { useState } from "react";
 
 export default function Layout() {
-  //получить сюда то, что мы вбиваем в поисковик и отправить дальше
+  const [searchValue, setSearchValue] = useState("");
+  const searchHandler = (inputValue) => {
+    setSearchValue(inputValue);
+  };
+
   return (
     <>
-      <Header></Header>
+      <Header inputValueHandler={searchHandler}></Header>
       <Downloader></Downloader>
       <main className={cn(styles.container)}>
-        <Outlet />
+        <Outlet context={searchValue} />
       </main>
     </>
   );

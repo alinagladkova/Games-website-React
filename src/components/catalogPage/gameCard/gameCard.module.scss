@@ -2,7 +2,7 @@
   cursor: pointer;
   flex-basis: 30%;
   margin: 0 5px 10px 5px;
-  background-color: rgba(41, 85, 85, 0.6);
+  background-color: #2b2531;
   border-radius: 10px;
   padding: 5px;
   &__img {
@@ -18,12 +18,13 @@
   }
   &__title {
     font-size: 18px;
-    color: rgb(255, 255, 255);
+    color: #e7b8ff;
+    text-shadow: 1px 1px 2px pink;
     margin: 10px;
   }
   &__info {
     margin: 10px;
-    color: #008b8b;
+    color: #a4416d;
     font-size: 16px;
   }
   &__release-date {
@@ -39,6 +40,7 @@
     margin-bottom: 5px;
   }
   &:hover {
-    border: 1px solid #00ced1;
+    border: 1px solid #a4416d;
+    box-shadow: 0px 0px 10px #da90e9;
   }
 }

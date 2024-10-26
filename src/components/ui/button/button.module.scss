@@ -1,7 +1,7 @@
 .btn {
   position: relative;
   cursor: pointer;
-  color: aliceblue;
+  color: #fcfcfc;
   svg {
     width: 20px;
   }
@@ -14,20 +14,21 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: rgba(41, 85, 85, 0.6);
+    background-color: #2b2531;
     z-index: -1;
   }
 }
 
 .btn:hover {
-  color: #0bc2e2;
+  color: #da90e9;
+  text-shadow: 1px 1px 2px pink;
 }
 
 .btn--download {
   width: 100%;
   padding: 10px 30px;
   border-radius: 30px;
-  background-color: #2da7ac;
+  background-color: #a4416d;
 
   &:before {
     content: none;
@@ -35,6 +36,7 @@
 }
 
 .btn--download:hover {
-  background-color: aliceblue;
-  color: #0bc2e2;
+  background-color: #da90e9;
+  box-shadow: 0px 0px 10px #da90e9;
+  color: #2b2531;
 }

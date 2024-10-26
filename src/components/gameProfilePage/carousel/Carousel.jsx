@@ -6,20 +6,7 @@ import "slick-carousel/slick/slick-theme.scss";
 import { NextArrow, PrevArrow } from "../sliderComponents/SliderComponents.jsx";
 
 export default function Carousel({ data }) {
-  console.log(data);
-
   const settings = {
-    // customPaging: function (i) {
-    //   {
-    //     return data.screenshots.map((screenshot) => {
-    //       return (
-    //         <div className={cn(styles["slide-container"])} key={screenshot.id + 1}>
-    //           <img className={cn(styles["centered-image"])} src={screenshot.image} alt="img" />
-    //         </div>
-    //       );
-    //     });
-    //   }
-    // },
     dots: true,
     fade: true,
     infinite: true,

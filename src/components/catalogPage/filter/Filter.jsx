@@ -7,9 +7,9 @@ import Checkbox from "../../ui/checkbox/Checkbox.jsx";
 export default function Filter({ data }) {
   const [checkedPlatform, setCheckedPlatform] = useState(new Array(2).fill(false));
   const [checkedGenre, setCheckedGenre] = useState(new Array(4).fill(false));
-  const [searchParams, setsearchParams] = useSearchParams();
+  // const [searchParams, setsearchParams] = useSearchParams();
 
-  const postQuery = searchParams.get("post") || "";
+  // const filterQuery = searchParams.has();
 
   const handlerSetStateCheckedPlatform = (position) => {
     const updatedCheckPlatform = checkedPlatform.map((el, i) => (i === position ? !el : el));
@@ -21,6 +21,10 @@ export default function Filter({ data }) {
     setCheckedGenre(updatedCheckGenre);
   };
 
+  const handleSubmit = (e) => {
+    // e.preventDefault()
+  };
+
   return (
     <form className={cn(styles.filter)}>
       <legend className={cn(styles["filter__title"])}>platform</legend>
@@ -30,9 +34,10 @@ export default function Filter({ data }) {
           .filter((game, i, arr) => arr.indexOf(game) === i)
           .map((platform, i) => {
             return (
-              <div className={cn(styles[`filter__inner`])} key={i}>
-                <Checkbox id={i} label={platform} stateChecked={checkedPlatform[i]} checkboxHandler={() => handlerSetStateCheckedPlatform(i)} />
-              </div>
+              // <div className={cn(styles[`filter__inner`])} key={i}>
+              // {stateChecked={checkedPlatform[i]}}
+              <Checkbox key={i} id={i} label={platform} onChange={() => handlerSetStateCheckedPlatform(i)} />
+              // </div>
             );
           })}
       </div>

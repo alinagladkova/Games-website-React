@@ -1,14 +1,15 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useOutletContext } from "react-router-dom";
 import GamesList from "../../components/catalogPage/gameList/GamesList";
 import Sidebar from "../../components/catalogPage/sidebar/Sidebar";
 
 function CatalogPage() {
   const games = useLoaderData();
+  const inputValue = useOutletContext();
 
   return (
     <>
       <Sidebar data={games}></Sidebar>
-      <GamesList data={games}></GamesList>
+      <GamesList data={games} inputValue={inputValue}></GamesList>
     </>
   );
 }

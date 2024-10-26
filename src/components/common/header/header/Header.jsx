@@ -1,4 +1,3 @@
-import { useSearchParams } from "react-router-dom";
 import { useState } from "react";
 import styles from "./header.module.scss";
 import cn from "classnames";
@@ -12,10 +11,9 @@ import { LuFilter } from "react-icons/lu";
 import { MdOutlineSort } from "react-icons/md";
 import { RiSearchLine } from "react-icons/ri";
 
-export default function Header() {
+export default function Header({ inputValueHandler }) {
   const [activeSearch, setActiveSearch] = useState(false);
   const [activeSort, setActiveSort] = useState(false);
-  // const [searchParams, setsearchParams] = useSearchParams();
 
   const setStateActiveSearch = () => {
     setActiveSearch((active) => !active);
@@ -27,15 +25,18 @@ export default function Header() {
 
   const handleKeyDown = (e) => {
     if (e.key === "Escape") {
-      setStateActiveSort();
-      setStateActiveSearch();
+      if (activeSearch && !activeSort) {
+        setStateActiveSearch();
+      }
+      if (activeSort && !activeSearch) {
+        setStateActiveSort();
+      }
     }
   };
 
   const inputHandler = (e, inputValue) => {
-    // e.preventDefault();
-    // setsearchParams({ game: inputValue });
-    //обеспечить всплытие до GameList, передать туда
+    e.preventDefault();
+    inputValueHandler(inputValue);
   };
 
   return (
@@ -44,14 +45,22 @@ export default function Header() {
         <Logo></Logo>
       </div>
       <div className={cn(styles["header__control"])}>
-        <search className={cn(styles["header__search"])} style={activeSearch ? { display: ["inline-block"] } : { display: "none" }} onKeyDown={handleKeyDown}>
+        <search
+          className={cn(styles["header__search"])}
+          style={activeSearch && !activeSort ? { display: ["inline-block"] } : { display: "none" }}
+          onKeyDown={handleKeyDown}
+        >
           <form>
             <div className={cn(styles["header__input"])}>
               <Input type="text" placeholder="Search" inputHandler={inputHandler}></Input>
             </div>
           </form>
         </search>
-        <div className={cn(styles["header__sort"])} style={activeSort ? { display: ["inline-block"] } : { display: "none" }} onKeyDown={handleKeyDown}>
+        <div
+          className={cn(styles["header__sort"])}
+          style={activeSort && !activeSearch ? { display: ["inline-block"] } : { display: "none" }}
+          onKeyDown={handleKeyDown}
+        >
           <Select name="sort" optionArr={["Release date", "Popularity", "From A to Z", "From Z to A"]}></Select>
         </div>
         <Button use="search" icon={<RiSearchLine />} handler={setStateActiveSearch}></Button>

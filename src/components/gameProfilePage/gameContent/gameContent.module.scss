@@ -1,9 +1,14 @@
 .game-content {
   flex-basis: 80%;
   min-width: 0;
+  padding-right: 30px;
 
   &__carousel {
-    padding: 0 20px;
     min-width: 0;
+  }
+  &__description {
+    margin: 50px auto;
+    color: #fcfcfc;
+    text-align: justify;
   }
 }

@@ -1,13 +1,12 @@
 import styles from "./checkbox.module.scss";
 import cn from "classnames";
 
-export default function Checkbox({ id, label, stateChecked, checkboxHandler }) {
+export default function Checkbox({ id, label, stateChecked, onChange }) {
   return (
     <>
-      <input className={cn(styles.checkbox)} type="checkbox" id={id} onChange={checkboxHandler} />
-      <label htmlFor={label}>
-        {label}
-        {stateChecked ? " (Checked)" : " (Unchecked)"}
+      <label htmlFor={label} className={cn(styles[`checkbox-wrapper`])}>
+        <input className={cn(styles[`checkbox-element`])} type="checkbox" id={id} onChange={onChange} />
+        <p>{label}</p>
       </label>
     </>
   );
