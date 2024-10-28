@@ -1,10 +1,22 @@
 import cn from "classnames";
 import styles from "./gameDetails.module.scss";
 import Button from "../../ui/button/Button";
+import { Context } from "../../common/context/Context";
+import { useContext, useEffect } from "react";
 
 export default function GameDetails({ data }) {
   const { thumbnail, release_date, developer, genre, publisher, minimum_system_requirements, short_description } = data;
-  //через кнопку открывать плашку download
+  const setDownloadStatus = useContext(Context);
+
+  const setStateDownloadStatus = () => {
+    setDownloadStatus(true, thumbnail);
+  };
+
+  // useEffect(() => {
+  //   setDownload(downloadStatus);
+  //   return () => {};
+  // }, [downloadStatus]);
+
   return (
     <div className={cn(styles["game-details"])}>
       <div className={cn(styles["game-details__thumbnail"])}>
@@ -36,7 +48,7 @@ export default function GameDetails({ data }) {
           </ul>
         </div>
       </div>
-      <Button use="download" text="Download" />
+      <Button use="download" text="Download" handler={setStateDownloadStatus} />
     </div>
   );
 }

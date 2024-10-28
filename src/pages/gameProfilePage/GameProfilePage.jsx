@@ -1,6 +1,7 @@
 import GameContent from "../../components/gameProfilePage/gameContent/GameContent";
 import GameDetails from "../../components/gameProfilePage/gameDetails/GameDetails";
 import Button from "../../components/ui/button/Button";
+
 import { LuArrowLeft } from "react-icons/lu";
 import cn from "classnames";
 import styles from "./gameProfilePage.module.scss";
@@ -9,7 +10,6 @@ import { useNavigate } from "react-router-dom";
 
 function GameProfilePage() {
   const { profile, id } = useLoaderData();
-
   const navigate = useNavigate();
 
   return (

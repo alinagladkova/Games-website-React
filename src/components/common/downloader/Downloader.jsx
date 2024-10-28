@@ -1,14 +1,14 @@
+import { useState } from "react";
 import styles from "./downloader.module.scss";
 import cn from "classnames";
 
-export default function Downloader({ data }) {
-  console.log(data);
+export default function Downloader({ downloadData }) {
+  const { downloadStatus, thumbnail } = downloadData;
 
   return (
-    <div className={cn(styles.downloader)}>
+    <div className={cn(styles.downloader)} style={downloadStatus ? { display: "flex" } : { display: "none" }}>
       <div className={cn(styles[`downloader__icon`])}>
-        {/* <img src={test()} alt="icon" /> */}
-        {/* <img src={data.find((game) => game.thumbnail === "https://www.freetogame.com/g/6/thumbnail.jpg").thumbnail} alt="icon" /> */}
+        <img src={thumbnail} alt="icon" />
       </div>
       <div className={cn(styles[`downloader__wrapper`])}>
         <div className={cn(styles[`downloader__info`])}>
