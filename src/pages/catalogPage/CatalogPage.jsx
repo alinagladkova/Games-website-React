@@ -4,12 +4,12 @@ import Sidebar from "../../components/catalogPage/sidebar/Sidebar";
 
 function CatalogPage() {
   const games = useLoaderData();
-  const inputValue = useOutletContext();
+  const [inputValue, sortValue, filterState] = useOutletContext();
 
   return (
     <>
-      <Sidebar data={games}></Sidebar>
-      <GamesList data={games} inputValue={inputValue}></GamesList>
+      <Sidebar data={games} filterState={filterState}></Sidebar>
+      <GamesList data={games} inputValue={inputValue} sortValue={sortValue}></GamesList>
     </>
   );
 }
