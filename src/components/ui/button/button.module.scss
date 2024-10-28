@@ -40,3 +40,9 @@
   box-shadow: 0px 0px 10px #da90e9;
   color: #2b2531;
 }
+
+.btn--close {
+  &:before {
+    content: none;
+  }
+}
