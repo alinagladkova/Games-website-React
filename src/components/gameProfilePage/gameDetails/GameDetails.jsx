@@ -2,7 +2,7 @@ import cn from "classnames";
 import styles from "./gameDetails.module.scss";
 import Button from "../../ui/button/Button";
 import { Context } from "../../common/context/Context";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 
 export default function GameDetails({ data }) {
   const { thumbnail, release_date, developer, genre, publisher, minimum_system_requirements, short_description } = data;
@@ -11,11 +11,6 @@ export default function GameDetails({ data }) {
   const setStateDownloadStatus = () => {
     setDownloadStatus(true, thumbnail);
   };
-
-  // useEffect(() => {
-  //   setDownload(downloadStatus);
-  //   return () => {};
-  // }, [downloadStatus]);
 
   return (
     <div className={cn(styles["game-details"])}>

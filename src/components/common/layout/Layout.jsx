@@ -18,7 +18,12 @@ export default function Layout() {
   return (
     <>
       <Header></Header>
-      <Downloader downloadData={download}></Downloader>
+      <Downloader
+        downloadData={download}
+        onClose={() => {
+          handleDownloadStatus(false, "");
+        }}
+      ></Downloader>
       <Context.Provider value={handleDownloadStatus}>
         <main>
           <Outlet />
