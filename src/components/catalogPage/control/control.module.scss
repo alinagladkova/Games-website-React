@@ -1,0 +1,31 @@
+.control {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 20px 15px 40px auto;
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+    min-width: 130px;
+  }
+  &__search {
+    position: absolute;
+    bottom: -10%;
+    right: 180px;
+    color: #fff;
+    min-width: 300px;
+    height: 30px;
+    background-color: #a4416d;
+    border-radius: 10px;
+    margin-right: 10px;
+  }
+  &__sort {
+    position: absolute;
+    bottom: -40%;
+    right: 180px;
+  }
+  &__input {
+    padding: 5px 10px;
+  }
+}
