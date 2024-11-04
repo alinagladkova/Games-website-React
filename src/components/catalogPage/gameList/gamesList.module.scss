@@ -1,10 +1,19 @@
 .games-list {
-  // display: grid;
-  // grid-template-columns: repeat(3, 33.3%);
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  // margin: 0 20px;
-  align-items: center;
+  display: grid;
+  grid-template-rows: 338px;
   width: 100%;
+}
+
+@media (max-width: 1200px) {
+  .games-list {
+    grid-template-columns: repeat(3, 33.3%) !important;
+    grid-template-rows: auto;
+  }
+}
+
+@media (max-width: 700px) {
+  .games-list {
+    grid-template-columns: repeat(2, 50%) !important;
+    grid-template-rows: auto;
+  }
 }

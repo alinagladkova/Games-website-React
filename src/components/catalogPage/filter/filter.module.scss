@@ -1,10 +1,8 @@
 .filter {
   border-radius: 10px;
   padding: 30px;
-
   background: #202020;
   min-width: 300px;
-
   &__holder {
     display: flex;
     flex-direction: column;
@@ -20,9 +18,14 @@
   }
   &__inner {
     display: flex;
-    // justify-content: space-between;
     margin-bottom: 15px;
     margin-right: 10px;
     color: #f6ebf9;
+  }
+}
+
+@media (max-width: 1200px) {
+  .sidebar {
+    width: 100%;
   }
 }

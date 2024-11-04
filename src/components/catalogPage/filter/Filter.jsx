@@ -1,60 +1,53 @@
-import { useSearchParams } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./filter.module.scss";
 import cn from "classnames";
 import Checkbox from "../../ui/checkbox/Checkbox.jsx";
+import { filterConfig } from "./filterConfig";
 
-export default function Filter({ data }) {
-  const [checkedPlatform, setCheckedPlatform] = useState(new Array(2).fill(false));
-  const [checkedGenre, setCheckedGenre] = useState(new Array(4).fill(false));
-  // const [searchParams, setsearchParams] = useSearchParams();
+export default function Filter({ handleCheck }) {
+  let initialState = Object.fromEntries(
+    Object.entries(filterConfig).map(([category, { options }]) => [category, Object.fromEntries(options.map((option) => [option.id, false]))])
+  );
+  const [checkedState, setCheckedState] = useState(initialState);
 
-  // const filterQuery = searchParams.has();
-
-  const handlerSetStateCheckedPlatform = (position) => {
-    const updatedCheckPlatform = checkedPlatform.map((el, i) => (i === position ? !el : el));
-    setCheckedPlatform(updatedCheckPlatform);
+  const handlerSetStateCheckedPlatform = (category, id) => {
+    setCheckedState((prev) => {
+      return {
+        ...prev,
+        [category]: {
+          ...prev[category],
+          [id]: !prev[category][id],
+        },
+      };
+    });
   };
 
-  const handlerSetStateCheckedGenre = (position) => {
-    const updatedCheckGenre = checkedGenre.map((el, i) => (i === position ? !el : el));
-    setCheckedGenre(updatedCheckGenre);
-  };
-
-  const handleSubmit = (e) => {
-    // e.preventDefault()
-  };
+  useEffect(() => {
+    const selectedFilters = Object.entries(checkedState).reduce((acc, [category, values]) => {
+      acc[category] = Object.entries(values)
+        .filter(([_, isChecked]) => isChecked)
+        .map(([id]) => id);
+      return acc;
+    }, {});
+    handleCheck(selectedFilters);
+  }, [checkedState]);
 
   return (
     <form className={cn(styles.filter)}>
-      <legend className={cn(styles["filter__title"])}>platform</legend>
-      <div className={cn(styles["filter__holder"])}>
-        {data
-          .map((game) => game.platform)
-          .filter((game, i, arr) => arr.indexOf(game) === i)
-          .map((platform, i) => {
-            return (
-              // <div className={cn(styles[`filter__inner`])} key={i}>
-              // {stateChecked={checkedPlatform[i]}}
-              <Checkbox key={i} id={i} label={platform} onChange={() => handlerSetStateCheckedPlatform(i)} />
-              // </div>
-            );
-          })}
-      </div>
-      <legend className={cn(styles["filter__title"])}>genre</legend>
-      <div className={cn(styles["filter__holder"])}>
-        {data
-          .map((game) => game.genre)
-          .filter((game, i, arr) => arr.indexOf(game) === i)
-          .map((genre, i) => {
-            return (
-              <div className={cn(styles[`filter__inner`])} key={i}>
-                <Checkbox id={i} label={genre} stateChecked={checkedGenre[i]} checkboxHandler={() => handlerSetStateCheckedGenre(i)} />
-              </div>
-            );
-          })}
-      </div>
+      {Object.entries(filterConfig).map(([category, { title, options }]) => {
+        return (
+          <div className={cn(styles["filter__category"])} key={category}>
+            <legend className={cn(styles["filter__title"])}>{title} </legend>
+            {options.map(({ id, label }) => {
+              return (
+                <div className={cn(styles[`filter__inner`])} key={id}>
+                  <Checkbox key={id} id={id} label={label} onChange={() => handlerSetStateCheckedPlatform(category, id)} />
+                </div>
+              );
+            })}
+          </div>
+        );
+      })}
     </form>
   );
 }
-//checked

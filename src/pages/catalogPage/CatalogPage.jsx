@@ -1,4 +1,5 @@
 import { useLoaderData } from "react-router-dom";
+import { useState } from "react";
 import GamesList from "../../components/catalogPage/gameList/GamesList";
 import Sidebar from "../../components/catalogPage/sidebar/Sidebar";
 import Control from "../../components/catalogPage/control/Control";
@@ -6,13 +7,12 @@ import Control from "../../components/catalogPage/control/Control";
 import styles from "./catalogPage.module.scss";
 import cn from "classnames";
 
-import { useState } from "react";
-
 function CatalogPage() {
   const games = useLoaderData();
   const [searchValue, setSearchValue] = useState("");
   const [optionValue, setOptionValue] = useState("");
-  const [filterState, setfilterState] = useState("");
+  const [filterState, setFilterState] = useState("");
+  const [filterValue, setFilterValue] = useState({});
 
   const searchHandler = (inputValue) => {
     setSearchValue(inputValue);
@@ -23,15 +23,18 @@ function CatalogPage() {
   };
 
   const getFilterState = (filterState) => {
-    setfilterState(filterState);
+    setFilterState(filterState);
+  };
+  const checkHandler = (selectedFilters) => {
+    setFilterValue(selectedFilters);
   };
 
   return (
     <>
       <Control inputValueHandler={searchHandler} sortValueHandler={sortHandler} getFilterStateHandler={getFilterState}></Control>
       <div className={cn(styles.catalog)}>
-        <Sidebar data={games} filterState={filterState}></Sidebar>
-        <GamesList data={games} inputValue={searchValue} sortValue={optionValue}></GamesList>
+        <Sidebar filterState={filterState} checkHandler={checkHandler}></Sidebar>
+        <GamesList data={games} inputValue={searchValue} sortValue={optionValue} filterState={filterState} filterValue={filterValue}></GamesList>
       </div>
     </>
   );

@@ -2,9 +2,11 @@ import cn from "classnames";
 import styles from "./gamesList.module.scss";
 import GameCard from "../gameCard/GameCard";
 
-export default function GamesList({ data, inputValue, sortValue }) {
+export default function GamesList({ data, inputValue, sortValue, filterState, filterValue }) {
+  console.log(filterState);
+
   return (
-    <div className={cn(styles["games-list"])}>
+    <div className={cn(styles["games-list"])} style={filterState ? { gridTemplateColumns: "repeat(3, 33.3%)" } : { gridTemplateColumns: "repeat(4, 25%)" }}>
       {data
         .filter((game) => {
           return game.title.toLowerCase().includes(inputValue);
@@ -29,6 +31,13 @@ export default function GamesList({ data, inputValue, sortValue }) {
             if (game1 < game2) return 1;
             if (game1 > game2) return -1;
             return 0;
+          }
+        })
+        .filter((game) => {
+          if (Object.keys(filterValue).length !== 0) {
+            const platformMatched = filterValue.platform.length === 0 || filterValue.platform.includes(game.platform);
+            const genreMatched = filterValue.genre.length === 0 || filterValue.genre.includes(game.genre);
+            return platformMatched & genreMatched;
           }
         })
         .map((gameCard) => (
