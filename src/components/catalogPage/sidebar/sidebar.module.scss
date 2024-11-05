@@ -9,3 +9,10 @@
     width: 100%;
   }
 }
+
+@media (max-width: 350px) {
+  .sidebar {
+    margin-right: 5px;
+    width: auto;
+  }
+}

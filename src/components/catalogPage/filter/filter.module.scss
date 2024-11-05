@@ -24,8 +24,11 @@
   }
 }
 
-@media (max-width: 1200px) {
-  .sidebar {
-    width: 100%;
+@media (max-width: 350px) {
+  .filter {
+    padding: 10px;
+    &__inner {
+      font-size: 14px;
+    }
   }
 }

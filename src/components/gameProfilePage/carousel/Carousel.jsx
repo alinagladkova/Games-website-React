@@ -18,6 +18,14 @@ export default function Carousel({ data }) {
     centerMode: true,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
+    responsive: [
+      {
+        breakpoint: 800,
+        settings: {
+          adaptiveHeight: true,
+        },
+      },
+    ],
   };
 
   return (

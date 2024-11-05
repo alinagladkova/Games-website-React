@@ -13,3 +13,13 @@
     margin: 20px auto;
   }
 }
+
+@media (max-width: 800px) {
+  .game-profile {
+    &__content {
+      flex-flow: column-reverse;
+      align-items: center;
+      margin: 20px 5px;
+    }
+  }
+}

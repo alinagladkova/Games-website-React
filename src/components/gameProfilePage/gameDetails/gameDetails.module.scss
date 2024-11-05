@@ -31,3 +31,10 @@
     color: #a4416d;
   }
 }
+
+@media (max-width: 800px) {
+  .game-details {
+    margin-bottom: 30px;
+    margin-left: 10px;
+  }
+}

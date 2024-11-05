@@ -14,6 +14,11 @@
 @media (max-width: 700px) {
   .games-list {
     grid-template-columns: repeat(2, 50%) !important;
-    grid-template-rows: auto;
+  }
+}
+
+@media (max-width: 450px) {
+  .games-list {
+    display: inline-block !important;
   }
 }
