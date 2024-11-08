@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/Games-website-React/static/css/main.95d2e209.css",
+    "main.js": "/Games-website-React/static/js/main.abd848bc.js",
+    "static/media/slick.svg": "/Games-website-React/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/Games-website-React/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/Games-website-React/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/Games-website-React/static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "/Games-website-React/index.html",
+    "main.95d2e209.css.map": "/Games-website-React/static/css/main.95d2e209.css.map",
+    "main.abd848bc.js.map": "/Games-website-React/static/js/main.abd848bc.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.95d2e209.css",
+    "static/js/main.abd848bc.js"
+  ]
+}
