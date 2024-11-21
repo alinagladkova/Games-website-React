@@ -7,9 +7,9 @@ import Layout from "../layout/Layout";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
-      <Route path="/" element={<CatalogPage />} loader={gamesCatalogLoader}></Route>
+      <Route index element={<CatalogPage />} loader={gamesCatalogLoader}></Route>
       <Route path="gameProfilePage/:id" element={<GameProfilePage />} loader={gamesProfileLoader}></Route>
-      <Route path="*" element={<NotFoundPage />}></Route>
+      <Route path="notFoundPage" element={<NotFoundPage />}></Route>
     </Route>
   )
 );
