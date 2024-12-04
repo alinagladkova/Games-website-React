@@ -4,6 +4,7 @@ import Option from "../option/Option";
 
 export default function Select({ name, optionArr, sortHandler }) {
   const changeAction = (e) => {
+    e.preventDefault();
     if (name === "sort") {
       return sortHandler(e, e.target.value);
     }

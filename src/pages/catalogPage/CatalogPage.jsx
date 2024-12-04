@@ -1,4 +1,5 @@
 import { useLoaderData } from "react-router-dom";
+
 import { useState } from "react";
 import GamesList from "../../components/catalogPage/gameList/GamesList";
 import Sidebar from "../../components/catalogPage/sidebar/Sidebar";
@@ -34,6 +35,7 @@ function CatalogPage() {
       <Control inputValueHandler={searchHandler} sortValueHandler={sortHandler} getFilterStateHandler={getFilterState}></Control>
       <div className={cn(styles.catalog)}>
         <Sidebar filterState={filterState} checkHandler={checkHandler}></Sidebar>
+
         <GamesList data={games} inputValue={searchValue} sortValue={optionValue} filterState={filterState} filterValue={filterValue}></GamesList>
       </div>
     </>

@@ -3,10 +3,10 @@ import GameDetails from "../../components/gameProfilePage/gameDetails/GameDetail
 import Button from "../../components/ui/button/Button";
 
 import { LuArrowLeft } from "react-icons/lu";
-import cn from "classnames";
-import styles from "./gameProfilePage.module.scss";
 import { useLoaderData } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import cn from "classnames";
+import styles from "./gameProfilePage.module.scss";
 
 function GameProfilePage() {
   const { profile, id } = useLoaderData();

@@ -1,6 +1,12 @@
 .notFound-page {
-  margin: 20px auto;
-  font-size: 30px;
-  color: aliceblue;
-  font-weight: 700;
+  margin: 100px auto;
+
+  &__back {
+    margin-bottom: 20px;
+  }
+  &__alert {
+    font-size: 30px;
+    color: aliceblue;
+    font-weight: 700;
+  }
 }

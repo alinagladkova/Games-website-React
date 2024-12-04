@@ -3,8 +3,6 @@ import styles from "./gamesList.module.scss";
 import GameCard from "../gameCard/GameCard";
 
 export default function GamesList({ data, inputValue, sortValue, filterState, filterValue }) {
-  console.log(filterState);
-
   return (
     <div className={cn(styles["games-list"])} style={filterState ? { gridTemplateColumns: "repeat(3, 33.3%)" } : { gridTemplateColumns: "repeat(4, 25%)" }}>
       {data
